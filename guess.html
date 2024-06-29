@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number</title>
+    <link rel="icon" href="gradient-numerology-background_23-2150066807.avif">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <h1 style="color: white;">NUMBER GUESSING GAME</h1>
+    <div class="title">
+            <h2>Try and Guess a Random Number Between 1 to 10</h2>
+            
+    </div>
+    <div class="title">
+        <h2>the game is Between you and Computer</h2>
+        
+</div>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <h4>Enter the Number:</h4>
+                </td>
+                <td><input id="num" style="font-size: 170%;" placeholder="0"></td>
+            </tr>
+            <tr>
+                <td><button onclick="rannum()">
+                        <h4>Check</h4>
+                    </button></td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="mess">You are Right/Wrong</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="id">Score:</p>
+                    <p id="score">10</p>
+                </td>
+            </tr>
+            <tr>
+                <td><button onclick="again()">
+                        <h4>Restart</h4>
+                    </button></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var message = document.getElementById("mess")
+        var a = document.getElementById("num")
+        var score = document.getElementById("score")
+        var count = 10
+        function again() {
+            count = 10
+            score.textContent = count
+        }
+        function rannum() {
+            var result = Number(a.value)
+            var ran = Math.random()
+            var last = Math.floor(ran * 10)
+            console.log(last);
+            console.log(result)
+            if (last == result) {
+                message.textContent = "You are Right"
+                alert("You Won The Guessing Game")
+
+
+            }
+            else {
+                message.textContent = "You are Wrong"
+                score.textContent = --count
+                if (count == 0) {
+                    alert("Please Restart The Game")
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
